@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchTask } from "./store";
 
 // const App = () => {
 //   const [input,setInput]=useState("");
@@ -59,6 +60,10 @@ const App = () => {
 
   }
 
+  const handleFetchTask=()=>{
+    dispatch(fetchTask())
+  }
+
   return (
     <>
       <form>
@@ -70,6 +75,9 @@ const App = () => {
         />
         <button  onClick={handleClick}>Add Task</button>
       </form>
+      <div>
+        <button onClick={handleFetchTask}>Fetch Task</button>
+      </div>
       <ul>
         {tasks.map((task,index)=>(
           <li key={index}>
